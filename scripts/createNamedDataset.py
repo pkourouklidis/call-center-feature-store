@@ -8,7 +8,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 #setup the credentials needed to access the minio bucket
 os.environ["AWS_SECRET_ACCESS_KEY"] = "minio123"
 os.environ["AWS_ACCESS_KEY_ID"] = "minio"
-os.environ["FEAST_S3_ENDPOINT_URL"] = "http://localhost:9000"
+os.environ["FEAST_S3_ENDPOINT_URL"] = "http://minio-service.kubeflow.svc.cluster.local:9000"
 
 store = FeatureStore(repo_path=".")
 
@@ -23,7 +23,7 @@ dataset = store.create_saved_dataset(
     from_=historicalJob,
     name='callcenter_training',
     storage=SavedDatasetFileStorage(path='s3://feast/data/callcenter_training.parquet',
-    s3_endpoint_override='http://localhost:9000')
+    s3_endpoint_override='http://minio-service.kubeflow.svc.cluster.local:9000')
 )
 
 print(dataset.to_df())
