@@ -6,9 +6,9 @@ from dataSources import callLogs
 from entities import call
 
 #Feature view
-callFeatures = FeatureView(
-    name="callFeatures",
-    description="call features",
+callcenterFeatures = FeatureView(
+    name="callcenter",
+    description="callcenter features",
     entities=[call],
     ttl=timedelta(seconds=8640000000),
     online=False,
