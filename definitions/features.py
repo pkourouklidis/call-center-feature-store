@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from feast import FeatureView
 
-from dataSources import callLogs
+from dataSources import callSource
 from entities import call
 
 #Feature view
@@ -12,5 +12,5 @@ callcenterFeatures = FeatureView(
     entities=[call],
     ttl=timedelta(seconds=8640000000),
     online=False,
-    source=callLogs,
+    source=callSource,
 )

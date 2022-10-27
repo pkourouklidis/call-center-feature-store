@@ -1,6 +1,0 @@
-project: feast_demo_kubeflow
-provider: local
-registry: s3://feast/registry.pb
-online_store: null
-offline_store:
-  type: file

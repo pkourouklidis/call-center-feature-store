@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-feast = {extras = ["aws"], version = "*"}
+feast = {extras = ["aws,postgres"], version = "*"}
 pandas = "*"
 
 [dev-packages]

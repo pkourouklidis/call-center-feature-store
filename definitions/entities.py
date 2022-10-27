@@ -1,10 +1,7 @@
-from feast import (
-    Entity,
-    ValueType,
-)
+from feast import Entity
 
 call = Entity(
     name="call",
-    join_keys=["callID"],
-    description="call id",
+    join_keys=["id"],
+    description="call entity",
 )
