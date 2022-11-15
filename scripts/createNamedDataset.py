@@ -6,23 +6,18 @@ import os
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-#setup the credentials needed to access the minio bucket
-os.environ["AWS_SECRET_ACCESS_KEY"] = "minio123"
-os.environ["AWS_ACCESS_KEY_ID"] = "minio"
-os.environ["FEAST_S3_ENDPOINT_URL"] = "http://minio-service.kubeflow.svc.cluster.local:9000"
-
 store = FeatureStore(repo_path="../definitions")
 
 # Get the latest feature values for unique entities
 historicalJob = store.get_historical_features(
-    entity_df="select id, arrival_time as event_timestamp from call_data limit 100",
-     features=["callcenter:waitduration"],
+    entity_df="select id, closing_time as event_timestamp from call_data limit 100",
+     features=["callcenter:wait_duration"],
 )
 
 dataset = store.create_saved_dataset(
     from_=historicalJob,
-    name='callcenter_training',
-    storage=SavedDatasetPostgreSQLStorage("test2")
+    name='callcenter-linear_training',
+    storage=SavedDatasetPostgreSQLStorage("test4")
 )
 
 print(dataset.to_df())
