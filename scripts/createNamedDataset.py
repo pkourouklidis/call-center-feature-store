@@ -17,7 +17,7 @@ historicalJob = store.get_historical_features(
 dataset = store.create_saved_dataset(
     from_=historicalJob,
     name='callcenter-linear_training',
-    storage=SavedDatasetPostgreSQLStorage("test4")
+    storage=SavedDatasetPostgreSQLStorage("test5")
 )
 
 print(dataset.to_df())
