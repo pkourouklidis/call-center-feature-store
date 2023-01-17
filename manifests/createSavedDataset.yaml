@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: named-dataset
+  namespace: panoptes
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+      - name: panoptes-registry-credentials
+      containers:
+      - name: named-dataset
+        image: registry.docker.nat.bt.com/panoptes/feast-repo:latest
+        command: ["python", "/feast/scripts/createNamedDataset.py"]
+      restartPolicy: Never
+  backoffLimit: 2
