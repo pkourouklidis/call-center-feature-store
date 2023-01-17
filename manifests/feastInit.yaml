@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: feast-init
+  namespace: panoptes
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+      - name: panoptes-registry-credentials
+      containers:
+      - name: named-dataset
+        image: registry.docker.nat.bt.com/panoptes/feast-repo:latest
+        command: ["bin/bash", "-c", "cd /feast/definitions && feast apply"]
+      restartPolicy: Never
+  backoffLimit: 2
