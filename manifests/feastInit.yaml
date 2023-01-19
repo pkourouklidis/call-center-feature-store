@@ -4,6 +4,7 @@ metadata:
   name: feast-init
   namespace: panoptes
 spec:
+  ttlSecondsAfterFinished: 100
   template:
     spec:
       imagePullSecrets:
