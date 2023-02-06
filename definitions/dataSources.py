@@ -11,7 +11,7 @@ callSource = PostgreSQLSource(
 
 sttSource = PostgreSQLSource(
     name="sttSource",
-    query="select id, ts as timestamp, input, prediction, label",
+    query="select id, ts as timestamp, input, prediction, label from stt",
     timestamp_field="timestamp",
     description="speech to text logs",
 )
