@@ -30,7 +30,7 @@ historicalJob = store.get_historical_features(
 
 dataset = store.create_saved_dataset(
     from_=historicalJob,
-    name="stt_training",
+    name="stt-silero_training",
     storage=SavedDatasetPostgreSQLStorage("stt_saved"),
 )
 
