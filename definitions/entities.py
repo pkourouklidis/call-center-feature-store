@@ -11,3 +11,9 @@ clip = Entity(
     join_keys=["id"],
     description="voice clip for speech to text"
 )
+
+image = Entity(
+    name = "image",
+    join_keys=["id"],
+    description="input image for dog classifier"
+)

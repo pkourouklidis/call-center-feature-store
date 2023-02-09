@@ -2,8 +2,8 @@ from datetime import timedelta
 
 from feast import FeatureView
 
-from dataSources import callSource, sttSource
-from entities import call, clip
+from dataSources import callSource, sttSource, dogsSource
+from entities import call, clip, image
 
 #Feature view
 callcenterFeatures = FeatureView(
@@ -22,4 +22,13 @@ sttFeatures = FeatureView(
     ttl=timedelta(seconds=8640000000),
     online=False,
     source=sttSource,
+)
+
+dogsFeatures = FeatureView(
+    name="dogs",
+    description="dogs classifier features",
+    entities=[image],
+    ttl=timedelta(seconds=8640000000),
+    online=False,
+    source=dogsSource,
 )

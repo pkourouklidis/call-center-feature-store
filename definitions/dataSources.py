@@ -15,3 +15,10 @@ sttSource = PostgreSQLSource(
     timestamp_field="timestamp",
     description="speech to text logs",
 )
+
+dogsSource = PostgreSQLSource(
+    name="dogsSource",
+    query="select id, ts as timestamp, input as dog_input, prediction as dog_prediction, label as dog_label from dogs",
+    timestamp_field="timestamp",
+    description="Dogs image classification data",
+)
