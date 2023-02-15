@@ -17,3 +17,9 @@ image = Entity(
     join_keys=["id"],
     description="input image for dog classifier"
 )
+
+customer = Entity(
+    name= "customer",
+    join_keys=["id"],
+    description="credit classification customer"
+)

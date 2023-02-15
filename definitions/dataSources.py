@@ -22,3 +22,10 @@ dogsSource = PostgreSQLSource(
     timestamp_field="timestamp",
     description="Dogs image classification data",
 )
+
+creditSource = PostgreSQLSource(
+    name="creditSource",
+    query="select id, ts as timestamp, sex, prediction as credit_prediction, label as credit_label from credit",
+    timestamp_field="timestamp",
+    description="Credit classification data",
+)
